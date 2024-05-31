@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>My Website</h1>
+            {% if current_user.is_authenticated %}
+                <a href="{{ url_for('logout') }}" class="btn-logout">Logout</a>
+            {% endif %}
+        </div>
+    </header>
+    <div class="sidebar">
+        <div class="icon-bar">
+            <a href="#"><i class="fas fa-house-user"></i><span>Home</span></a>
+            <a href="#"><i class="fas fa-search"></i><span>Search</span></a>
+            <a href="#"><i class="fas fa-envelope"></i><span>Contact</span></a>
+            <a href="#"><i class="fas fa-globe"></i><span>About</span></a>
+        </div>
+    </div>
+    <div class="content">
+        <h1>Welcome to My Website</h1>
+        <p>This is the main content area.</p>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <ul class="flashes">
+            {% for category, message in messages %}
+              <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+    </div>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>
