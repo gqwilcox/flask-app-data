@@ -7,48 +7,6 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        body, html {
-            height: 100%;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-        }
-        .header {
-            background-color: #333;
-            color: white;
-            padding: 10px;
-            text-align: center;
-        }
-        .register-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-grow: 1; /* Make login container take remaining space */
-        }
-        .register-form-container {
-            width: 80%; /* Set the width of the container */
-            max-width: 600px; /* Set max width for larger screens */
-        }
-        .register-form {
-            border: 2px solid #ccc; /* Border around the login form */
-            padding: 20px; /* Add some padding to the form */
-            border-radius: 5px; /* Optional: Add rounded corners */
-            background-color: #f9f9f9; /* Optional: Add background color */
-            display: grid; /* Use grid layout */
-            grid-template-columns: auto 1fr; /* First column auto width, second column takes remaining space */
-            grid-gap: 10px; /* Add some spacing between grid items */
-        }
-        .register-form label {
-            text-align: right; /* Align text to the right */
-        }
-        .register-form input {
-            width: 100%; /* Set input width to fill grid cell */
-        }
-        h2 {
-            margin: 0; /* Remove default margin */
-        }
-    </style>
 </head>
 <body>
     {% with messages = get_flashed_messages(with_categories=true) %}
@@ -64,36 +22,55 @@
         <h1>APPLICATION HEADER TO BE REPLACED</h1>
     </div>
     <div class="register-container">
-        <div class="register-form-container">
-            <h2>Registration</h2>
-            <div class="register-form">
-                {% if error_message %}
-                    <div class="alert alert-danger">
-                        {{ error_message }}
-                    </div>
-                {% endif %}
-                <form method="POST">
-                    <div>
-                        <label for="firstname">First Name:</label>
-                        <input type="text" id="firstname" name="firstname" required>
-                    </div>
-                    <div>
-                        <label for="lastname">Last Name:</label>
-                        <input type="text" id="lastname" name="lastname" required>
-                    </div>
-                    <div>
-                        <label for="username">Username:</label>
-                        <input type="text" id="username" name="username" required>
-                    </div>
-                    <div>
-                        <label for="password">Password:</label>
-                        <input type="password" id="password" name="password" required>
-                    </div>
-                    <button type="submit">Submit</button>
-                </form>
-                <p>Already have an account? <a href="{{ url_for('login') }}">Back to Login</a></p>
+        <div class="register-form">
+            <h2>Register</h2>
+            <div>
+                <p></p>
             </div>
+            {% if error_message %}
+                <div class="alert alert-danger">
+                    {{ error_message }}
+                </div>
+            {% endif %}
+            <form method="POST">
+                <div class="input-group">
+                    <input type="text" id="name" name="name" placeholder="Full Name" required>
+                    <p></p>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-phone-alt"></i>
+                    <input type="text" id="phonenumber" name="phonenumber" placeholder="Phone Number" required>
+                    <p></p>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="activationcode" name="activationcode" placeholder="Activation Code" required>
+                    <p></p>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="email" name="email" placeholder="Email" required>
+                    <p></p>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                    <p></p>
+                </div>
+                <button type="submit">Register</button>
+            </form>
+            <hr> <!-- Line separator -->
+            <p>Already have an account? <a href="{{ url_for('login') }}">Back to Sign In</a></p>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer>
+        <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+        </ul>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 </body>
 </html>

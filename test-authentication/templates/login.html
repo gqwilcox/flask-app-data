@@ -3,84 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Sign In</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        body, html {
-            height: 100%;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            background: url('{{ url_for('static', filename='images/pexels-adrien-olichon-1257089-2387793.jpg') }}') no-repeat center center fixed;
-            background-size: cover; /* Cover the entire page */
-        }
-        .header {
-            color: #FAFBFC;
-            padding: 5px; /* Reduced padding for smaller header */
-            text-color: white;
-            text-align: center;
-<!--            border-bottom: 1px solid #ddd; /* Optional: Add a bottom border for separation */-->
-        }
-        .header h1 {
-            margin: 0;
-            font-color: white;
-            font-size: 2em; /* Larger font size */
-        }
-        .login-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-grow: 1; /* Make login container take remaining space */
-        }
-        .login-form {
-            border: 2px solid #ccc;
-            padding: 20px;
-            border-radius: 15px; /* Slightly more rounded corners */
-            background-color: rgba(249, 249, 249, 0.9); /* Semi-transparent background */
-            text-align: center; /* Center align the content */
-        }
-        .login-form .input-group {
-            position: relative; /* Position the container relatively */
-            margin-bottom: 20px; /* Add some margin between input groups */
-        }
-        .login-form .input-group .icon {
-            position: absolute; /* Position the icon absolutely */
-            left: 10px; /* Align to the left side */
-            top: 50%; /* Align to the vertical center */
-            transform: translateY(-50%); /* Adjust vertical position */
-            color: #555; /* Icon color */
-        }
-        .login-form input[type="text"],
-        .login-form input[type="password"] {
-            padding-left: 40px; /* Make space for the icon */
-            border: 1px solid #ccc; /* Add border */
-            border-radius: 5px; /* Add border radius */
-            width: calc(100% - 50px); /* Adjust width to include padding and icon */
-            color: #555; /* Text color */
-            height: 40px; /* Set the height of the input box */
-        }
-        .login-form button[type="submit"] {
-            width: calc(100% - 40px); /* Adjust width to match input fields */
-            height: 40px; /* Set the height of the button */
-            margin-top: 20px; /* Add some space above the button */
-            border: none; /* Remove border */
-            border-radius: 5px; /* Add border radius */
-            background-color: #4a90e2; /* Medium blue background */
-            color: white; /* White text color */
-            font-weight: bold; /* Bold font weight */
-            cursor: pointer; /* Add cursor pointer */
-        }
-        .login-form p {
-            margin-top: 10px; /* Add some space above the paragraph */
-        }
-        .login-form hr {
-            border: 0;
-            border-top: 1px solid #ccc; /* Add a light gray line */
-            margin: 20px 0; /* Add margin above and below the line */
-        }
-    </style>
 </head>
 <body>
     {% with messages = get_flashed_messages(with_categories=true) %}
@@ -95,25 +21,39 @@
     <div class="header">
         <h1>APPLICATION HEADER TO BE REPLACED</h1>
     </div>
-    <div class="login-container">
-        <div class="login-form">
-            <h2>Login</h2>
+    <div class="sign-in-container">
+        <div class="sign-in-form">
+            <h2>Sign In</h2>
+            <div>
+                <p></p>
+            </div>
             <form method="POST">
                 <div class="input-group">
                     <i class="fas fa-user icon"></i> <!-- Font Awesome user icon -->
-                    <input type="text" id="username" name="username" placeholder="Username" required>
+                    <input type="text" id="email" name="email" placeholder="Email" required>
                 </div>
                 <div class="input-group">
                     <i class="fas fa-lock icon"></i> <!-- Font Awesome lock icon -->
                     <input type="password" id="password" name="password" placeholder="Password" required>
                 </div>
-                <button type="submit">Login</button>
+                <button type="submit">Sign In</button>
             </form>
             <p><a href="#">Forgot Password?</a></p> <!-- Forgot Password link -->
             <hr> <!-- Line separator -->
             <p>Don't have an account? <a href="{{ url_for('register') }}">Register here</a></p>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer>
+        <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+        </ul>
+    </footer>
+
     <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 </body>
 </html>

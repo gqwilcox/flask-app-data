@@ -1,108 +1,171 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
+/* Header Styles */
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            background: url('/static/images/pexels-pixabay-355465.jpg') no-repeat center center fixed;
+            background-size: cover; /* Cover the entire page */
+        }
+        .header {
+            color: #FAFBFC;
+            padding: 5px; /* Reduced padding for smaller header */
+            text-color: white;
+            text-align: center;
+            /*border-bottom: 1px solid #ddd; /* Optional: Add a bottom border for separation */
+        }
+        .header h1 {
+            margin: 0;
+            font-color: white;
+            font-size: 2em; /* Larger font size */
+        }
 
-/* Header styles */
-header {
-    background-color: #f8f9fa;
-    padding: 1rem;
-    border-bottom: 1px solid #e0e0e0;
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-    top: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-sizing: border-box;
-}
+/* Footer styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            opacity: 50%;
+        }
+        footer ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        footer ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+        footer ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
 
-header h1 {
-    margin: 0;
-    font-size: 1.5rem;
-}
+/* sign-in Styles */
+        .sign-in-container {
+            display: flex;
+            justify-content: center; /* Center items horizontally */
+            align-items: center;
+            flex-grow: 1; /* Make sign-in container take remaining space */
+            padding: 20px; /* Add padding for spacing */
+        }
+        .sign-in-form {
+            border: 2px solid #ccc;
+            padding: 20px;
+            border-radius: 15px;
+            background-color: rgba(249, 249, 249, 0.9);
+            text-align: center;
+            max-width: 400px; /* Limit form width to 400px */
+            width: 100%; /* Set width to 100% of the container */
+        }
+        .sign-in-form .input-group {
+            position: relative; /* Position the container relatively */
+            margin-bottom: 20px; /* Add some margin between input groups */
+        }
+        .sign-in-form .input-group .icon {
+            position: absolute; /* Position the icon absolutely */
+            left: 10px; /* Align to the left side */
+            top: 50%; /* Align to the vertical center */
+            transform: translateY(-50%); /* Adjust vertical position */
+            color: #555; /* Icon color */
+        }
+        .sign-in-form input[type="text"],
+        .sign-in-form input[type="password"] {
+            padding-left: 40px; /* Make space for the icon */
+            border: 1px solid #ccc; /* Add border */
+            border-radius: 5px; /* Add border radius */
+            width: calc(100% - 50px); /* Adjust width to include padding and icon */
+            color: #555; /* Text color */
+            height: 40px; /* Set the height of the input box */
+        }
+        .sign-in-form button[type="submit"] {
+            width: calc(100% - 40px); /* Adjust width to match input fields */
+            height: 40px; /* Set the height of the button */
+            margin-top: 20px; /* Add some space above the button */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Add border radius */
+            background-color: #4a90e2; /* Medium blue background */
+            color: white; /* White text color */
+            font-weight: bold; /* Bold font weight */
+            cursor: pointer; /* Add cursor pointer */
+        }
+        .sign-in-form p {
+            margin-top: 10px; /* Add some space above the paragraph */
+        }
+        .sign-in-form hr {
+            border: 0;
+            border-top: 1px solid #ccc; /* Add a light gray line */
+            margin: 20px 0; /* Add margin above and below the line */
+        }
 
-.btn-logout {
-    padding: 0.5rem 1rem;
-    background-color: #007bff;
-    color: #ffffff;
-    text-decoration: none;
-    border-radius: 5px;
-}
+        /* Registration Styles */
+        .register-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1; /* Make sign-in container take remaining space */
+        }
 
-.btn-logout:hover {
-    background-color: #0056b3;
-}
+        .register-form-container {
+            width: 100%; /* Set the width of the container */
+            max-width: 500px; /* Set max width for larger screens */
+        }
 
-/* Sidebar styles */
-.sidebar {
-    position: fixed;
-    top: 3.5rem; /* Adjust to make space for the fixed header */
-    left: 0;
-    height: calc(100% - 3.5rem); /* Adjust to make space for the fixed header */
-    width: 3rem;
-    background-color: #13344F;
-    transition: width 0.5s;
-    overflow-x: hidden;
-    z-index: 500;
-}
+        .register-form {
+            border: 2px solid #ccc; /* Border around the registration form */
+            padding: 20px; /* Add some padding to the form */
+            border-radius: 15px; /* Slightly more rounded corners */
+            background-color: rgba(249, 249, 249, 0.9); /* Semi-transparent background */
+            max-width: 500px; /* Set max width for larger screens */
+            width: 100%; /* Set the width of the container */
+            text-align: center; /* Center text within the form */
+            margin: auto; /* Center the form horizontally */
+        }
 
-.sidebar:hover {
-    width: 150px;
-}
+        .register-form .input-group {
+            position: relative; /* Position the container relatively */
+        }
 
-.icon-bar a {
-    display: flex;
-    padding: 15px 10px;
-    text-decoration: none;
-    color: white;
-    font-size: 20px;
-    transition: all 0.3s;
-}
+        .register-form .input-group .icon {
+            position: absolute; /* Position the icon absolutely */
+            left: 10px; /* Align to the left side */
+            top: 50%; /* Align to the vertical center */
+            transform: translateY(-50%); /* Adjust vertical position */
+            color: #555; /* Icon color */
+        }
 
-.icon-bar a span {
-    margin-left: 10px;
-    display: none;
-    white-space: nowrap;
-}
+        .register-form input[type="text"],
+        .register-form input[type="password"] {
+            padding-left: 10px; /* Add some padding to the left */
+            border: 1px solid #ccc; /* Add border */
+            border-radius: 5px; /* Add border radius */
+            width: calc(100% - 22px); /* Adjust width to fill the container */
+            color: #555; /* Text color */
+            height: 40px; /* Set the height of the input box */
+        }
 
-.sidebar:hover .icon-bar a span {
-    display: inline;
-}
+        .register-form button[type="submit"] {
+            width: 100%; /* Set width to fill the container */
+            height: 40px; /* Set the height of the button */
+            margin-top: 20px; /* Add some space above the button */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Add border radius */
+            background-color: #4a90e2; /* Medium blue background */
+            color: white; /* White text color */
+            font-weight: bold; /* Bold font weight */
+            cursor: pointer; /* Add cursor pointer */
+        }
 
-.icon-bar a:hover {
-    background-color: #575757;
-}
+        .register-form p {
+            margin-top: 10px; /* Add some space above the paragraph */
+        }
 
-/* Content styles */
-.content {
-    margin-top: 4rem; /* Adjust to make space for the fixed header */
-    margin-left: 3rem; /* Adjust to make space for the sidebar */
-    padding: 10px;
-    transition: margin-left 0.5s;
-    box-sizing: border-box;
-}
-
-.sidebar:hover ~ .content {
-    margin-left: 150px;
-}
-
-@media (max-width: 768px) {
-    .sidebar {
-        width: 60px;
-    }
-
-    .sidebar .icon-bar a span {
-        display: none;
-    }
-
-    .content {
-        margin-left: 60px;
-    }
-
-    .sidebar:hover ~ .content {
-        margin-left: 60px;
-    }
-}
+        .register-form hr {
+            border: 0;
+            border-top: 1px solid #ccc; /* Add a light gray line */
+            margin: 20px 0; /* Add margin above and below the line */
+        }
